@@ -1,5 +1,22 @@
+<h2>User info</h2>
+<%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+<h4>name</h4>
+<%= current_user.name %>
+<h4>introduction</h4>
+
+<%= link_to "ボタン", edit_user_path(current_user.id) %>
+
+<h4>New book</h4>
+<%= form_with model:@book, local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Opinion</p>
+  <%= f.text_area :body%>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
 <h1>投稿一覧</h1>
-<% @book.each do |book| %>
+<% @books.each do |book| %>
   <%= link_to book_path(book.id) do %>
     <h4>title</h4>
   <% end %>
