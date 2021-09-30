@@ -1,8 +1,22 @@
-<h2>Users</h2>
+<div class="row">
 
+<%= render '/users/sidebar', book: @book %>
+
+<div class="col-lg-9">
+
+<p>Users</p>
+<ul>
+  <li>image</li>
+  <li>name</li>
+</ul>
 <% @users.each do |user| %>
-  <p>image</p>
-  <p>name</p>
-  <%= user.name %>
-  <%= link_to "show", "/" %>
+  <ul>
+    <li></li>
+    <li><%= user.name %></li>
+    <li><%= link_to "show", "/" %></li>
+  </ul>
 <% end %>
+
+</div>
+
+</div>

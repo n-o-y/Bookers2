@@ -1,19 +1,8 @@
-<h2>User info</h2>
-<%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
-<h4>name</h4>
-<%= current_user.name %>
-<h4>introduction</h4>
+<div class="row">
 
-<%= link_to "ボタン", edit_user_path(current_user.id) %>
+<%= render '/users/sidebar', book: @book %>
 
-<h4>New book</h4>
-<%= form_with model:@book, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body%>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<div class="col-lg-9">
 
 <h1>投稿一覧</h1>
 <% @books.each do |book| %>
@@ -24,3 +13,7 @@
   <h4>opinion</h4>
   <%= book.body %>
 <% end %>
+
+</div>
+
+</div>
