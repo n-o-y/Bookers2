@@ -25,6 +25,6 @@
     <p><%= f.text_field :title %></p>
     <p>Opinion</p>
     <p><%= f.text_area :body %></p>
-    <%= f.submit 'Create Book' %>
+    <%= f.submit 'Create Book', method: :post %>
   <% end %>
 </div>

@@ -11,10 +11,12 @@
               <%= current_user.name %>
             <% end %>
           </td>
-          <td><%= @book.title %></td>
-          <td><%= @book.body %></td>
-          <td><%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
-          <td><%= link_to "destroy", book_path(@book.id), method: :delete, class: "btn btn-danger" %></td>
+          <td><%= @book_d.title %></td>
+          <td><%= @book_d.body %></td>
+          <%= if user_signed_in? %>
+            <td><%= link_to "edit", edit_book_path(@book_d.id), class: "btn btn-success" %></td>
+            <td><%= link_to "destroy", book_path(@book_d.id), method: :delete, class: "btn btn-danger" %></td>
+          <% end %>
         </tr>
       </table>
     </div>
