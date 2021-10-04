@@ -1,21 +1,21 @@
 <div class="container">
   <div class="row">
-    <%= render '/users/sidebar', book: @book %>
+    <%= render '/users/sidebar', book: @book_s, user: @user_s %>
     <div class="col-lg-8 offset-md-1">
       <h2 class="mt-4 pb-2 border-bottom border-secondary">Book detail</h2>
       <table class="w-100">
         <tr>
           <td>
-            <%= link_to user_path(current_user.id) do %>
-              <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", size: "30x30" %><br/>
-              <%= current_user.name %>
+            <%= link_to user_path(@book.user.id) do %>
+              <%= attachment_image_tag @book.user, :profile_image, fallback: "no_image.jpg", size: "30x30" %><br/>
+              <%= @book.user.name %>
             <% end %>
           </td>
-          <td><%= @book_d.title %></td>
-          <td><%= @book_d.body %></td>
-          <%= if user_signed_in? %>
-            <td><%= link_to "edit", edit_book_path(@book_d.id), class: "btn btn-success" %></td>
-            <td><%= link_to "destroy", book_path(@book_d.id), method: :delete, class: "btn btn-danger" %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if current_user.id == @book.user.id %>
+            <td><%= link_to "edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
+            <td><%= link_to "destroy", book_path(@book.id), method: :delete, class: "btn btn-danger" %></td>
           <% end %>
         </tr>
       </table>
