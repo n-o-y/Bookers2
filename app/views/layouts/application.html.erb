@@ -68,8 +68,6 @@
         </div>
       </nav>
     </header>
-    <%= flash[:user_updated] %>
-    <%= flash[:book_created] %>
     <%= flash[:book_updated] %>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>

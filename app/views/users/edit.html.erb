@@ -5,7 +5,7 @@
       <%= message %>
     <% end %>
   <% end %>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
       <%= form_with model:@user, local:true do |f| %>
@@ -13,22 +13,22 @@
           <label for="inputName">Name</label>
         </p>
         <p>
-          <%= f.text_field :name, autofocus: true, id: "inputName", placeholder: "名前" %>
+          <%= f.text_field :name, autofocus: true, id: "inputName"%>
         </p>
         <p>
           <label for="inputImage">Image</label>
         </p>
         <p>
-          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+          <%= f.attachment_field :profile_image %>
         </p>
         <p>
           <label for="inputIntroduction">Introduction</label>
         </p>
         <p>
-          <%= f.text_area :introduction, placeholder: "紹介文" %>
+          <%= f.text_area :introduction %>
         </p>
         <p>
-          <%= f.submit "update user" %>
+          <%= f.submit "Update user" %>
         </p>
       <% end %>
     </div>

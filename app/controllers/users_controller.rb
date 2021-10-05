@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   def show
     @book_s = Book.new
     @user_s = User.find(params[:id])
-    @books = Book.find(@user_s.id)
+    @books = Book.where(user_id: @user_s.id)
   end
 
   def edit
     @user = User.find(params[:id])
     unless @user.id == current_user.id
-      redirect_to users_path(current_user.id)
+      redirect_to user_path(current_user.id)
     end
   end
 
