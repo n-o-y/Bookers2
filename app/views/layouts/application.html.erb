@@ -14,7 +14,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container d-flex">
-          <a class="navbar-brand p-2 text-light" href="/">Bookers</a>
+          <%= link_to "Bookers", root_path, class: "navbar-brand p-2 text-light" %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,45 +22,29 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
-                    <i class="fas fa-home"></i> Home
-                  <% end %>
+                  <%= link_to " Home", user_path(current_user.id), class: "nav-link text-light fas fa-home" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to users_path, class: "nav-link text-light" do %>
-                    <i class="fas fa-users"></i> Users
-                  <% end %>
+                  <%= link_to " Users", users_path, class: "nav-link text-light fas fa-users" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to books_path, class: "nav-link text-light" do %>
-                    <i class="fas fa-book-open"></i> Books
-                  <% end %>
+                  <%= link_to " Books", books_path, class: "nav-link text-light fas fa-book-open" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
-                    <i class="fas fa-sign-out-alt"></i> Log out
-                  <% end %>
+                  <%= link_to " Log out", destroy_user_session_path, method: :delete, class: "nav-link text-light fas fa-sign-out-alt" %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "/", class: "nav-link text-light" do %>
-                    <i class="fas fa-home"></i> Home
-                  <% end %>
+                  <%= link_to " Home", root_path, class: "nav-link text-light fas fa-home" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "/home/about", class: "nav-link text-light" do %>
-                    <i class="fa fa-link"></i> About
-                  <% end %>
+                  <%= link_to " About", home_about_path, class: "nav-link text-light fas fa-link" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
-                    <i class="fa fa-user-plus"></i> Sign up
-                  <% end %>
+                  <%= link_to " Sign up", new_user_registration_path, class: "nav-link text-light fas fa-user-plus" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
-                    <i class="fa fa-sign-in-alt"></i> Log in
-                  <% end %>
+                  <%= link_to " Log in", new_user_session_path, class: "nav-link text-light fas fa-sign-in-alt" %>
                 </li>
               <% end %>
             </ul>
@@ -68,7 +52,6 @@
         </div>
       </nav>
     </header>
-    <%= flash[:book_updated] %>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>

@@ -1,6 +1,6 @@
 <div class="col-md-3">
   <h2 class="mt-4 pb-2">User info</h2>
-  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+  <%= attachment_image_tag user, :profile_image, fallback: "no_image_1.jpg", size: "60x60" %>
   <table class="w-100 mb-4">
     <tbody>
       <tr class="border-top border-secondary">
@@ -14,17 +14,25 @@
     </tbody>
   </table>
   <div class="row">
-    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-sm w-100" do %>
-      <i class="fas fa-user-cog"></i>
+    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block btn-sm" do %>
+    <i class="fas fa-user-cog" ></i>
     <% end %>
   </div>
 
   <h2 class="mt-3">New book</h2>
   <%= form_with model:book, local:true do |f| %>
-    <p>Title</p>
-    <p><%= f.text_field :title %></p>
-    <p>Opinion</p>
-    <p><%= f.text_area :body %></p>
+    <p>
+      <label for="book[title]" >Title</label>
+    </p>
+    <p>
+      <%= f.text_field :title, id: "book[title]" %>
+    </p>
+    <p>
+      <label for="book[body]" >Opinion</label>
+    </p>
+    <p>
+      <%= f.text_area :body, id: "book[body]" %>
+    </p>
     <%= f.submit 'Create Book', method: :post, class: "btn btn-success" %>
   <% end %>
 </div>
